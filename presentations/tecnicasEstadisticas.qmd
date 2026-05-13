@@ -1,0 +1,99 @@
+---
+title: "Tecnicas estadíticas y visualización de datos"
+---
+
+## Técnicas estadísticas y formas para poder visualizar los datos
+
+Una vez recolectados y depurados los datos mediante el proceso de limpieza descrito (valores nulos, outliers, transformaciones), se generará un **dataframe único** en formato tabular que contendrá todas las respuestas válidas. Este dataframe será la base para los análisis estadísticos y las visualizaciones. A continuación, se describen las técnicas específicas a emplear.
+
+::: {.callout-tip collapse="true"}
+## 1. Análisis descriptivo y tablas de frecuencias
+
+Para cada variable, se obtendrán medidas resumen según su naturaleza:
+
+- **Variables cuantitativas** (horas de sueño, promedio académico, edad, semestre, número de materias reprobadas): media, mediana, desviación estándar, rango, percentiles (25, 50, 75) y coeficiente de variación.
+- **Variables ordinales o categóricas** (carrera, calidad de sueño percibida, género): tablas de frecuencias absolutas y relativas, moda, y gráficos de barras.
+
+Las tablas de frecuencias se elaborarán tanto para la muestra global como para subgrupos de interés (por ejemplo, por carrera o rango de horas de sueño).
+:::
+
+::: {.callout-tip collapse="true"}
+## 2. Visualización de distribuciones
+
+Se generarán los siguientes gráficos para explorar la forma, tendencia central y dispersión de las variables:
+
+- **Histogramas** con curva de densidad (para visualizar la normalidad de variables como horas de sueño y promedio).
+- **Diagramas de caja (boxplots)** que permitan identificar outliers y comparar distribuciones entre categorías (ej. promedio académico según rangos de sueño: <6h, 6–8h, >8h).
+- **Gráficos de barras** para variables categóricas (carreras más frecuentes, calidad de sueño reportada).
+- **Gráficos de violín** para combinar boxplot y densidad.
+:::
+
+::: {.callout-tip collapse="true"}
+## 3. Medidas de dispersión y diagramas de dispersión
+
+Para cuantificar la variabilidad de las variables numéricas, se calcularán:
+
+- Varianza, desviación estándar, rango intercuartílico (IQR) y coeficiente de variación.
+
+Los **diagramas de dispersión (scatter plots)** serán la herramienta principal para explorar visualmente la relación entre pares de variables, especialmente:
+
+- Horas de sueño vs. promedio académico.
+- Horas de sueño vs. número de materias reprobadas.
+- Calidad de sueño percibida vs. promedio.
+- Edad vs. semestre (para verificar posible multicolinealidad).
+
+Cada gráfico de dispersión se complementará con una línea de tendencia (loess o lineal) y el coeficiente de correlación correspondiente.
+:::
+
+::: {.callout-tip collapse="true"}
+## 4. Matriz de correlación
+
+Se construirá una **matriz de correlación** que incluya todas las variables cuantitativas y ordinales (tratando estas últimas como continuas para el análisis de Spearman). Se empleará el **coeficiente de correlación de Spearman** por su robustez ante la no normalidad y su idoneidad para escalas ordinales (como calidad de sueño). La matriz se presentará como:
+
+- **Mapa de calor (heatmap)** con colores que indiquen la magnitud y signo de la correlación (rojo para negativas, azul para positivas).
+- **Círculos proporcionales** para una interpretación más intuitiva.
+- **Tabla numérica** con los coeficientes redondeados a dos decimales y asteriscos indicando significancia estadística (p < 0.05, p < 0.01, p < 0.001).
+
+Esta matriz permitirá detectar relaciones relevantes entre las variables predictoras y la variable respuesta (promedio), así como posibles problemas de multicolinealidad (correlaciones > 0.7 u < -0.7 entre predictoras).
+:::
+
+::: {.callout-tip collapse="true"}
+## 5. Modelo de regresión multivariada
+
+Se especificará un **modelo de regresión lineal múltiple** para explicar el desempeño académico (promedio) en función de las horas de sueño y otras covariables. La forma general del modelo será:
+
+$$
+\begin{multline*}
+\text{Promedio}_i = \beta_0 + \beta_1 \cdot \text{HorasSueño}_i + \\ \beta_2 \cdot \text{CalidadSueño}_i +  \beta_3 \cdot \text{Semestre}_i + \beta_4 \cdot \text{Edad}_i + \epsilon_i
+\end{multline*}
+$$
+
+Se evaluarán:
+
+- **Coeficientes estandarizados y no estandarizados** (con intervalos de confianza del 95%).
+- **Significancia individual** (p-valor de cada $\beta$).
+- **Bondad de ajuste** ($R^2$ y $R^2$ ajustado).
+- **Diagnóstico del modelo**: análisis de residuos (normalidad, homocedasticidad, independencia) mediante pruebas de Shapiro-Wilk, Breusch-Pagan y Durbin-Watson. Además, se calculará el **Factor de Inflación de la Varianza (VIF)** para detectar multicolinealidad severa.
+
+En caso de que la relación no sea lineal, se explorarán transformaciones (logarítmicas, cuadráticas) o modelos alternativos (regresión robusta o cuantílica).
+:::
+
+::: {.callout-tip collapse="true"}
+## 6. Aplicación interactiva con Streamlit
+
+Para facilitar la exploración de los datos por parte del equipo investigador y el profesor, se desarrollará una **aplicación web interactiva** utilizando **Streamlit** (Python). Esta aplicación estará alojada en el repositorio del proyecto y podrá ejecutarse localmente (y, opcionalmente, desplegarse en Streamlit Cloud). La app incluirá las siguientes funcionalidades:
+
+- **Carga y vista del dataframe limpio** (tabla dinámica con búsqueda y filtros).
+- **Selección interactiva de variables** para generar gráficos a la carta (histogramas, boxplots, diagramas de dispersión) con la posibilidad de ajustar parámetros como número de bins o color por categoría.
+- **Visualización de la matriz de correlación** con mapa de calor interactivo (tooltips con el coeficiente exacto).
+- **Resultados del modelo de regresión** mostrando la ecuación estimada, tabla de coeficientes, gráficos de residuos y métricas de ajuste.
+- **Comparación de escenarios** (simulación de cambios en horas de sueño y su efecto en el promedio predicho).
+
+La app se construirá con los mismos datos procesados y el código de análisis (R o Python) se integrará mediante llamadas a funciones predefinidas. Se incluirán instrucciones en el README para su ejecución.
+:::
+
+::: {.callout-tip collapse="true"}
+## 7. Integración y reporte final
+
+Todos los análisis estadísticos serán reproducibles mediante scripts en `R` y `Python`. Los resultados se volcarán en el documento final (Quarto) en forma de tablas y figuras estáticas, mientras que la aplicación Streamlit quedará como una herramienta complementaria para exploración dinámica.
+:::

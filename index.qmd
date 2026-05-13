@@ -1,0 +1,54 @@
+---
+title: "Relación entre las horas de sueño y el desempeño académico en estudiantes universitarios"
+---
+
+::: {.callout-note collapse="true"}
+## Información del equipo 5 
+- Angel Gabriel Ramos Mendoza   2123262e@umich.mx   
+
+- Adair Chávez Servín   2408824g@umich.mx  
+
+- Juan Carrillo Salazar    2408812d@umich.mx  
+
+- Miguel Sandoval Millán   2408819j@umich.mx  
+:::
+
+## Introducción
+
+El sueño es un factor fundamental para el funcionamiento cognitivo y el rendimiento 
+académico. Sin embargo, los estudiantes universitarios son uno de los grupos con 
+mayor prevalencia de privación de sueño, debido a cargas académicas, actividades 
+sociales y uso de tecnología. Comprender la relación entre las horas de sueño y el 
+desempeño académico permite identificar patrones que pueden orientar intervenciones 
+en salud universitaria.
+
+El presente proyecto de investigación tiene como objetivo analizar la
+**relación entre las horas de sueño y el desempeño académico** en estudiantes
+de nivel licenciatura de la Universidad Michoacana de San Nicolás de Hidalgo (UMSNH).
+Se parte de la hipótesis de que una menor cantidad de sueño nocturno se asocia
+con promedios académicos más bajos y un mayor número de materias reprobadas, 
+controlando por factores como edad, semestre y calidad de sueño autopercibida.
+
+El objetivo principal es determinar la fuerza de la correlación entre las horas de sueño y el desempeño académico, utilizando los datos recolectados mediante encuestas. A partir del análisis estadístico (tablas de frecuencias, medidas de tendencia central, diagramas de dispersión y modelos de regresión), se busca identificar patrones que permitan interpretar el efecto de dormir menos o más horas, así como evaluar si sacrificar horas de sueño para estudiar repercute significativamente en el rendimiento académico.
+
+
+## Antecedentes 
+
+El sueño es un estado fisiológico esencial para la reparación del cuerpo, la consolidación de la memoria y la eliminación de toxinas cerebrales. La falta de sueño afecta negativamente el estado de ánimo, la memoria, la toma de decisiones y la salud cardiovascular. Se recomienda dormir entre 7.5 y 9 horas diarias; menos de 4.5 horas es perjudicial. Además, completar los ciclos de sueño (≈90 minutos) evita despertar con fatiga.
+
+En el entorno universitario, es frecuente que los estudiantes reduzcan sus horas de descanso, sobre todo en épocas de exámenes o entregas, lo que puede afectar su concentración y rendimiento académico. Por ello, surge el interés de analizar si existe una relación entre la cantidad y calidad del sueño y el desempeño académico de los estudiantes de nuestra universidad.
+
+---
+
+::: {.callout-note collapse="true"}
+## Desarrollo del proyecto
+
+Todo el desarrollo del proyecto se alojará en un **repositorio público de GitHub**,
+donde se irán registrando los avances, scripts, el reporte final (generado con Quarto)
+y la aplicación interactiva. De esta forma, se garantiza la transparencia, reproducibilidad 
+y el acceso abierto a los materiales generados.
+
+[Ver repositorio de GitHub →](https://github.com/Angel-Ramos-Rm/sleep-academic-performance)
+:::
+
+---

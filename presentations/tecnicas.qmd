@@ -1,0 +1,99 @@
+---
+title: "Técnicas de Muestreo"
+---
+
+## Población objetivo
+
+La población de estudio incluye a los estudiantes activos de nivel licenciatura de la Universidad Michoacana de San Nicolás de Hidalgo, con edad mínima de 17 años, sin restricción por carrera o semestre. Se estima que esta población alcanza un total aproximado de 40,000 alumnos.
+
+
+## Técnica de muestreo
+
+Se utilizará **muestreo por conveniencia**, dado que la recolección de datos 
+se realiza mediante un formulario digital de distribución voluntaria. Este 
+enfoque permite alcanzar a un número representativo de estudiantes de forma 
+eficiente, aunque se reconoce que no garantiza representatividad estadística 
+estricta.
+
+- **Población accesible:** Estudiantes universitarios mayores de 17 años, matriculados en cualquier carrera o semestre.
+
+- **Procedimiento:** Se generará un enlace al formulario de Google Forms, el cual permanecerá abierto durante un tiempo limitado. Se invitará a los estudiantes a responder y, de manera opcional, a reenviar el enlace a otros compañeros (efecto bola de nieve), lo que amplía el alcance sin perder la lógica del muestreo por conveniencia.
+
+- **Criterios de inclusión:** Ser estudiante universitario activo, tener 17 años o más, y haber completado el formulario en su totalidad. 
+- **Criterios de exclusión:** Estudiantes que no hayan dormido por condiciones médicas diagnosticadas (apnea, insomnio crónico bajo tratamiento, etc.) o que se encuentren bajo efectos de fármacos que alteren el sueño de forma significativa (a criterio del investigador).
+
+- **Limitaciones asumidas:** Los resultados no serán generalizables a toda la población universitaria del país o región, sino que reflejarán la realidad del grupo accesible (principalmente estudiantes de la Universidad Michoacana de San Nicolás de Hidalgo en Morelia, Michoacán).
+
+- **Fortalezas del método elegido:** Permite obtener una muestra grande en poco tiempo, con bajo costo, y es adecuado para un estudio de tipo correlacional-exploratorio como el planteado (Relación entre horas de sueño y desempeño académico).
+
+
+
+## Tamaño de muestra
+
+Se establecen dos metas de recolección según la precisión deseada:
+
+- **Mínimo aceptable:** 121 respuestas (margen de error del 9%, nivel de confianza del 95%)
+- **Óptimo (estándar profesional):** 381 respuestas (margen de error del 5%, nivel de confianza del 95%)
+
+
+
+
+### Justificación del tamaño de muestra
+
+Para determinar el tamaño de muestra se utilizó la fórmula para poblaciones 
+finitas (tamaño de la muestra para estimar proporciones):
+
+$$  n= \frac{ N \cdot Z^2 \cdot p \cdot (1-p)}{e^2(N-1)+Z^2\cdot p(1-p)} $$
+
+Donde se asumen los siguientes parámetros:
+
+| Parámetro | Valor | Justificación |
+|---|---|---|
+| $Z$ | 1.96 | Nivel de confianza del 95% |
+| $p$ | 0.50 | Máxima variabilidad esperada |
+| $e$ | 0.089 | Margen de error del 9% |
+
+Sustituyendo:
+
+$$  n= \frac{ 40,000 \cdot (1.96)^2 \cdot 0.5 \cdot (1-0.5)}{(0.089)^2(39,999)+(1.96)^2\cdot 0.5(1-0.5)} \approx 121$$
+
+Por lo tanto, se establece una meta mínima de **121 respuestas**, lo cual 
+representa una muestra suficiente para realizar un análisis de regresión 
+lineal multivariada con resultados estadísticamente interpretables.
+
+### Comparativa de esfuerzo 
+
+| Margen de Error | Muestra Necesaria ($n$) | Nivel de Precisión |
+| :--- | :---: | :--- |
+| **5%** | **381** | Alta (Estándar profesional) |
+| **7%** | **195** | Media-Alta (Punto de equilibrio) |
+| **9%** | **121** | Media (Mínimo aceptable) |
+
+
+## Instrumento de recolección
+
+Los datos se recolectarán mediante un formulario de **Google Forms**, 
+estructurado en las siguientes secciones:
+
+- **Datos generales:** edad, semestre, carrera.
+- **Hábitos de sueño:** horas promedio, horarios, calidad percibida.
+- **Desempeño académico:** promedio actual, materias reprobadas, etc.
+
+Esta organización permite agrupar la información por bloques temáticos
+y facilita el análisis posterior. Además, al incluir estas secciones
+se busca controlar estadísticamente el posible efecto de variables
+ajenas (como la carrera cursada o el nivel de exigencia), aunque
+no sea posible manipularlas. De esta forma, se reduce la influencia
+de factores extraños no controlados directamente en el diseño del estudio.
+
+[Ver formulario →](https://docs.google.com/forms/d/1fnk68WoV6nEkkdBawx7Hw5YH6NLNcuHZi8GL8QXNfW0/preview)
+
+## Procesamiento de datos
+
+Las respuestas se almacenarán automáticamente en **Google Sheets** y 
+posteriormente se procesarán con:
+
+- **Python:** para limpieza y filtrado inicial de los datos (manejo de valores nulos, 
+detección de outliers, transformación de variables).
+- **R:** para el análisis estadístico descriptivo, cálculo de correlaciones y modelado
+ de regresión lineal o logística, según la naturaleza de la variable dependiente (promedio).

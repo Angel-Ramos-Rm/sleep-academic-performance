@@ -1,0 +1,370 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  english,
+  spanish,
+  12pt,
+  oneside]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+%\usepackage[utf8]{inputenc} %fuentes  
+\usepackage{lmodern}
+%\usepackage[T1]{fontenc}              
+
+%\usepackage[spanish,english]{babel}   
+
+\usepackage{textgreek}
+\usepackage{amsmath}
+\usepackage{amsthm, amssymb, amsfonts}
+\usepackage{graphicx, color}
+\usepackage{caption, subcaption}
+\usepackage{multicol}
+\usepackage{makeidx}
+\makeindex
+\usepackage{array, tabularx, multirow}
+%\usepackage[width=155mm,...]{geometry} 
+
+%\usepackage[pagebackref=true]{hyperref} 
+\usepackage{enumitem}
+%\hypersetup{...}                        
+
+\usepackage{tikz-cd}
+\usepackage{lipsum}
+%\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+
+%\Crefname{part}{Part}{Parts}
+%\Crefname{step}{Step}{Steps}
+%\Crefname{prop}{Proposition}{Propositions}
+%\Crefname{prob}{Problem}{Problems}
+
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{datetime}
+
+\graphicspath{ {img/} }
+
+% Page Layout
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\nouppercase{\bfseries\rightmark}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{2pt}
+
+\title{Relación entre las horas de sueño y el desempeño académico en estudiantes universitarios}
+
+
+
+\makeatletter
+  \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}
+  \vspace*{\fill}
+  \begin{center}
+  \end{center}
+  \vspace{\fill}
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{coro}[equation]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[equation]{Definition}
+\newtheorem{exam}[equation]{Example}
+\newtheorem{prob}[equation]{Problem}
+
+\theoremstyle{remark}
+\newtheorem{note}[equation]{Note}
+\newtheorem{rem}[equation]{Remark}
+
+\newcommand{\cP}{\mathcal{P}}
+\DeclareMathOperator{\aut}{Aut}
+\newcommand{\scatter}{{scattering}}
+
+\renewcommand{\labelitemi}{\tiny{$\blacksquare$}}
+\renewcommand{\labelitemii}{$\cdot$}
+
+\newcommand{\sm}{\setminus}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\subset}{\subseteq}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bar}{\overline}
+
+\usepackage[shadow, colorinlistoftodos,disable]{todonotes}
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+\begin{document}
+
+\selectlanguage{spanish}
+
+\begin{titlepage}
+\setlength{\parindent}{0pt} \setlength{\parskip}{0pt}
+
+\begin{center}
+ \vfill 
+ 
+ \begin{minipage}{\textwidth}
+  
+  \newcolumntype{V}{>{\centering\arraybackslash} m{.17\textwidth} }
+  \newcolumntype{C}{>{\centering\arraybackslash} m{.56\textwidth} }
+  
+   \begin{tabular}{ V C V }
+  \includegraphics[width=.23\textwidth]{ActuariaLogo.png}  %
+  &\Large Universidad Michoacana de San Nicolás de Hidalgo &%
+  \includegraphics[width=.15\textwidth]{UMSNHLogo.png}
+ \end{tabular}
+ 
+
+ \end{minipage}
+
+
+% \newcolumntype{V}{>{\centering\arraybackslash} m{\textwidth} }
+% \newcolumntype{C}{>{\centering\arraybackslash} m{.58\textwidth} }
+
+
+
+
+
+ \vfill
+
+\begin{minipage}{0.7\textwidth}
+\begin{center}
+\large Actuaría y Ciancia de Datos 
+\end{center}
+\end{minipage}
+% 
+\begin{center}
+
+\vfill
+\medskip \rule{.9\textwidth}{2pt}
+\bigskip
+
+{\large \bfseries  \thetitle   }
+
+\medskip \rule{.9\textwidth}{2pt}
+\end{center}
+
+\begin{center}
+\vspace*{1cm}
+{\huge P R O Y E C T O}\\
+\vspace*{1cm}
+Proyecto final de Estadística 1 \\ \bigskip
+{\large \emph{Equipo número 5}} \\ \bigskip
+
+Presenta\\ \medskip
+Angel Gabriel Ramos Mendoza 2123262e@umich.mx \\
+Adair Chávez Servín 2408824g@umich.mx \\
+Juan Carrillo Salazar 2408812d@umich.mx \\
+Miguel Sandoval Millán 2408819j@umich.mx \\
+%\texttt{2408812d@umich.mx, 2408824g@umich.mx, 2408819j@umich.mx, 2123262e@umich.mx}
+
+\bigskip
+
+Profesor: \\
+%Titulo del asesor\\
+Dr. Juan Carlos Arteaga Vekazquez\\
+\texttt{juan.artega@umich.mx}
+%Coadvisors
+%\emph{Coasesores:}
+%\coadvisor1 \\ \coadvisor2 \\ \coadvisor3 
+\end{center}
+
+\vfill
+
+\begin{center}
+{Morelia, Michoacán, México}\\
+%{\thedate}  % to use the date of compilation
+{abril, 2026}
+\end{center}
+\cleardoublepage
+\end{center}
+\end{titlepage}
+
+\renewcommand*\contentsname{Tabla de contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\listoffigures
+\listoftables
+
+
+
+
+
+
+\end{document}

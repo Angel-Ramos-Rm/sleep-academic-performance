@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Horas de sueño en el desempeño académico"
+  navbar:
+    left:
+      - text: "Introducción"
+        href: index.qmd
+      - text: "Técnicas de muestreo"
+        href: presentations/tecnicas.qmd 
+      - text: "Técnicas estadísticas"
+        href: presentations/tecnicasEstadisticas.qmd
+
+
+
+      - text: "Bibliografías"
+        href: presentations/bibliografias.qmd
+
+
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-float: true
+    css: styless.css

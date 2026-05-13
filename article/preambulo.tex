@@ -1,0 +1,95 @@
+%\usepackage[utf8]{inputenc} %fuentes  
+\usepackage{lmodern}
+%\usepackage[T1]{fontenc}              
+
+%\usepackage[spanish,english]{babel}   
+
+\usepackage{textgreek}
+\usepackage{amsmath}
+\usepackage{amsthm, amssymb, amsfonts}
+\usepackage{graphicx, color}
+\usepackage{caption, subcaption}
+\usepackage{multicol}
+\usepackage{makeidx}
+\makeindex
+\usepackage{array, tabularx, multirow}
+%\usepackage[width=155mm,...]{geometry} 
+
+%\usepackage[pagebackref=true]{hyperref} 
+\usepackage{enumitem}
+%\hypersetup{...}                        
+
+\usepackage{tikz-cd}
+\usepackage{lipsum}
+%\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+
+%\Crefname{part}{Part}{Parts}
+%\Crefname{step}{Step}{Steps}
+%\Crefname{prop}{Proposition}{Propositions}
+%\Crefname{prob}{Problem}{Problems}
+
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{datetime}
+
+\graphicspath{ {img/} }
+
+% Page Layout
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\nouppercase{\bfseries\rightmark}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{2pt}
+
+\title{Relación entre las horas de sueño y el desempeño académico en estudiantes universitarios}
+
+
+
+\makeatletter
+  \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}
+  \vspace*{\fill}
+  \begin{center}
+  \end{center}
+  \vspace{\fill}
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{coro}[equation]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[equation]{Definition}
+\newtheorem{exam}[equation]{Example}
+\newtheorem{prob}[equation]{Problem}
+
+\theoremstyle{remark}
+\newtheorem{note}[equation]{Note}
+\newtheorem{rem}[equation]{Remark}
+
+\newcommand{\cP}{\mathcal{P}}
+\DeclareMathOperator{\aut}{Aut}
+\newcommand{\scatter}{{scattering}}
+
+\renewcommand{\labelitemi}{\tiny{$\blacksquare$}}
+\renewcommand{\labelitemii}{$\cdot$}
+
+\newcommand{\sm}{\setminus}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\subset}{\subseteq}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bar}{\overline}
+
+\usepackage[shadow, colorinlistoftodos,disable]{todonotes}
+

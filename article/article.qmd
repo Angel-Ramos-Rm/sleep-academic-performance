@@ -1,0 +1,22 @@
+---
+format:
+  pdf:
+    documentclass: article
+    classoption: [12pt, oneside]
+    include-in-header: preambulo.tex
+    include-before-body: portada.tex
+    number-sections: true
+    toc: true
+    lof: true
+    lot: true
+    keep-tex: true
+    title-block-style: none  
+    variables:
+      title-block: false
+lang: es
+babel-lang: spanish
+babel-otherlangs: english
+bibliography: references.bib
+---
+
+
