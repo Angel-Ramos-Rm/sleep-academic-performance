@@ -30,7 +30,7 @@ cd sleep-academic-performance
 
 **Windows:**
 ```bash
-cd app
+cd scripts
 python -m venv aplicacion.venv
 aplicacion.venv\Scripts\activate
 pip install -r requirements.txt
