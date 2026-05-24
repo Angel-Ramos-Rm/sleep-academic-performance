@@ -12,7 +12,10 @@ def run() -> None:
             "Pages": [
                 st.Page(
                     dir_path/"introduccion.py", title="Bienvenido"
-                )
+                ),
+                st.Page(
+                    dir_path / "data.py", title="Exploración de datos"
+                ),
             ]
         }
     )

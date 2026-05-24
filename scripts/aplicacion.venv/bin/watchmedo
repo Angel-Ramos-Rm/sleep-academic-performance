@@ -1,4 +1,4 @@
-#!/home/angel/Escritorio/Universidad/Estadistica/ProyectoFinal/app/aplicacion.venv/bin/python3.10
+#!/home/angel/Escritorio/Universidad/Estadistica/ProyectoFinal/scripts/aplicacion.venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
