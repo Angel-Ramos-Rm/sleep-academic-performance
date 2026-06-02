@@ -60,15 +60,24 @@ def cargar_datos() -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
     df["promedio"] = pd.to_numeric(df["promedio_raw"], errors="coerce")
     df.drop(columns=["promedio_raw"], inplace=True)
 
+
+    nan_originales_promedio = df["promedio"].isna().sum() #Capturar NaN originales antes de marcar outliers
+
     # Detectar outliers 
     mask_outlier = df["promedio"] > 10
     if mask_outlier.any():
         n = mask_outlier.sum()
         advertencias.append(
-            f"⚠️ Se encontraron **{n} valor(es) atípico(s)** en *promedio académico* "
+            f"Se encontraron **{n} valor(es) atípico(s)** en *promedio académico* "
             f"(>10, p. ej. 1198). Se marcan como datos faltantes."
         )
         df.loc[mask_outlier, "promedio"] = pd.NA
+    
+    if nan_originales_promedio > 0:
+        advertencias.append(
+            f"Se encontraron **{nan_originales_promedio} valor(es) faltante(s)** originales "
+            f"en *promedio académico* (celdas vacías en el CSV)."
+        )
 
     semestre_limpio = df["semestre"].astype(str).str.strip()
     semestre_limpio = semestre_limpio.str.extract(r"^(\d+)")[0]
@@ -77,7 +86,7 @@ def cargar_datos() -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
     if mask_sem.any():
         n = mask_sem.sum()
         advertencias.append(
-            f"⚠️ Se encontraron **{n} valor(es) no numérico(s)** en *semestre* "
+            f"Se encontraron **{n} valor(es) no numérico(s)** en *semestre* "
             f"(p. ej. 'Terminé la carrera', '3er año'). Se marcan como datos faltantes."
         )
 
@@ -98,7 +107,7 @@ def cargar_datos() -> tuple[pd.DataFrame, pd.DataFrame, list[str]]:
 
 
 def run():
-    st.title("📋 Exploración del conjunto de datos")
+    st.title("Exploración del conjunto de datos")
     st.markdown(
         "Aquí puedes explorar la tabla de respuestas ya limpia, aplicar filtros "
         "y descargar el subconjunto que te interese."
@@ -107,7 +116,7 @@ def run():
     df, df_original, advertencias = cargar_datos()
 
     if advertencias:
-        with st.expander("🔧 Notas del proceso de limpieza", expanded=True):
+        with st.expander("Notas del proceso de limpieza", expanded=True):
             for msg in advertencias:
                 st.markdown(msg)
 
@@ -209,7 +218,7 @@ def run():
     st.divider()
 
     # Estadísticas rápidas del subconjunto filtrado 
-    with st.expander("📊 Estadísticas del subconjunto seleccionado"):
+    with st.expander("Estadísticas del subconjunto seleccionado"):
         ec1, ec2, ec3 = st.columns(3)
         promedio_medio = df_filtrado["promedio"].mean()
         calidad_media = df_filtrado["calidad_sueño"].mean()
@@ -242,7 +251,7 @@ def run():
             use_container_width=True,
         )
 
-    st.subheader("⬇️ Descargar datos")
+    st.subheader("Descargar datos")
     csv_bytes = df_filtrado[list(COLS_DISPLAY.keys())].rename(
         columns=COLS_DISPLAY
     ).to_csv(index=False).encode("utf-8")
