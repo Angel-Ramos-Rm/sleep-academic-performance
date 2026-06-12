@@ -11,8 +11,7 @@ El objetivo principal es cuantificar la correlación entre las horas de sueño y
 | Herramienta | Uso |
 |-------------|-----|
 | **Google Forms** | Recolección de datos |
-| **Python** | Limpieza inicial y transformación de datos |
-| **R** | Análisis estadístico, correlaciones y regresión lineal múltiple |
+| **Python** | Limpieza inicial y transformación de datos, análisis estadístico, correlaciones y regresión lineal múltiple |
 | **Quarto** | Generación del reporte final (HTML / sitio web) |
 | **Streamlit** | Aplicación interactiva para explorar datos y resultados |
 | **Git / GitHub** | Control de versiones y alojamiento del repositorio |
@@ -38,7 +37,7 @@ pip install -r requirements.txt
 
 **Linux / macOS:**
 ```bash
-cd app
+cd scripts
 python3 -m venv aplicacion.venv
 source aplicacion.venv/bin/activate
 pip install -r requirements.txt
