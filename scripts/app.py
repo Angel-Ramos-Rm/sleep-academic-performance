@@ -16,6 +16,12 @@ def run() -> None:
                 st.Page(
                     dir_path / "data.py", title="Exploración de datos"
                 ),
+                st.Page(
+                    dir_path / "distribuciones.py", title="Distribuciones y Dispersión"
+                ),
+                st.Page(
+                    dir_path / "correlacion.py", title="Correlación"
+                ),
             ]
         }
     )
